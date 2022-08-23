@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cerveja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            padding-top: 70px;
+            margin-bottom: 50px;
+        }
+        picture {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 213, 0, 0.17);
+        }
+        img {
+          max-width: 500px;
+          min-width: 250px;
+          height: 100%;
+          
+        }
+        #calculo{
+            margin-top: 40px;
+            margin: auto;
+            height: 30px;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+       
+            
+        }
+        #calculopai {
+            height: 60px;
+            margin-top: 20px;
+        }
+        input{
+            border-radius: 5px;
+        }
+        .calculotxt{
+            
+            display: flex;
+            justify-content: space-around;
+            margin: auto;
+            max-width: 600px;
+        }
+        .precocerveja {
+            padding-right: 100px;
+        }
+        .pesoml {
+            padding-left: 0px;
+        }
+        #res {
+            font: bolder 1.5em Arial;
+            margin: auto;
+            width: 300px;
+        }
+        footer {
+            margin-top: 100px;
+            background-color: cadetblue;
+            height: 62px;
+        }
+        .criadopor {
+            font: normal 1.7em Arial;
+            margin: auto;
+            width: 300px;
+            line-height: 62px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calcule o preço do litro da cerveja</h1>
+    </header>
+    <main>
+        <picture>
+            <img src="img/cerveja_horizontal2.jpg" alt="Cerveja Artezanal">
+        </picture>
+        <div id="calculopai">
+            <div class="calculotxt">
+                <h3 class="pesoml">Peso em ML:</h3>
+                <h3 class="precocerveja">Preço da cerveja:</h3>
+            </div>
+            <div id="calculo">
+                <input type="number" name="txtml" id="txtml">
+                <input type="number" name="txtpreco" id="txtpreco">
+                <input type="button" value="Calcular" onclick="precoPorMl()">
+            </div>
+            <div id="res"></div>
+        </div>
+    </main>
+    <footer>
+        <h3 class="criadopor">Criado por <strong>Igor Gazineo</strong></h3>
+    </footer>
+
+
+    <script>
+        function precoPorMl(){
+            pesoMl= document.getElementById('txtml')
+            pesoMl= Number(pesoMl.value.replace(",","."))
+            precoCerva= document.getElementById('txtpreco')
+            precoCerva= Number(precoCerva.value)
+            precoLitro= (precoCerva * 1000) / pesoMl
+            res= document.getElementById('res')
+            res.innerHTML= '<br> O preço da cerveja por litro é de: ' + precoLitro.toFixed(2) + ' reais.'
+
+        }
+    </script>
+</body>
+</html>
